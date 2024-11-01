@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>This is home page</h1>
+    <h1>My Name is Md Jashim Uddin</h1>
+    <h1>Name : {{Name}} </h1>
+    <h1>Age : {{Age}} </h1>
+    {{lst}}
+
+    {% if Age >= 20 %}
+        <h4>You are eligible for a driving license</h4>
+    {% elif 10 <= Age <= 19 %}
+        <h4>You are not eligible for a driving license</h4>
+    {% else %}
+        <h4>You are a child</h4>
+    {% endif %}
+
+
+    {% for i in courses %}
+    <h3>{{i.id}} {{i.name}} {{i.fee}}
+    {% endfor %}
+{% comment %} Join filter {% endcomment %}
+    <h1>{{ lst | join:" " }}</h1>
+    <h1>{{ lst | join:" - " }}</h1>
+    <h1>{{ lst | join:" // " }}</h1>
+
+
+{% comment %} Date filter {% endcomment %}
+    <h1>Current Date : {{date}} </h1>
+    <h1>Current Date : {{ date | date }} </h1>
+    <h1>Current Date : {{ date|date:"SHORT_DATE_FORMAT" }} </h1>
+    <h1>Current Date : {{ date|date:"D d M Y" }} </h1>
+
+
+{% comment %} Default filter {% endcomment %}
+    <h1> {{ " "|default_if_none:"an empty string" }} </h1>
+
+
+{% comment %} Add Filter {% endcomment %}
+    <h1>The value : {{ 20 | add:"5" }}</h1>
+
+
+    {% comment %} Capfirst Filter {% endcomment %}
+    <h1>The value : {{ "django" | capfirst }}</h1>
+
+
+    {% comment %} Cut Filter {% endcomment %}
+    <h1>The value : {{ "January - February - March" | cut:"-" }}</h1>
+
+
+    {% comment %} Dictsort Filter {% endcomment %}
+    <h1>The value : {{ NameList | dictsort:"name" }}</h1>
+
+
+    {% comment %} Escape Filter {% endcomment %}
+    <h1>The value: &lt;p&gt;This &lt;em&gt;should be&lt;/em&gt; fun!&lt;/p&gt;</h1>
+
+
+    {% comment %} First Filter {% endcomment %}
+    <h1>The value: {{ fruits | first }}</h1>
+
+
+    {% comment %} Last Filter {% endcomment %}
+    <h1>The value: {{ fruits | last }}</h1>
+
+
+    {% comment %} Length Filter {% endcomment %}
+    <h1>The value: {{ fruits | length }}</h1>
+
+
+    {% comment %} Linenumbers Filter {% endcomment %}
+    <h1>{{ d | linenumbers }}</h1>
+
+
+    {% comment %} lower filter {% endcomment %}
+    <h1>{{ 'I Am Master Yoda' | lower }}</h1>
+
+
+    {% comment %} Upper Filter {% endcomment %}
+    <h1>{{ 'I Am Master Yoda' | upper }}</h1>
+
+
+    {% comment %} Title Filter {% endcomment %}
+    <h1>{{ 'I Am Master Yoda' | title }}</h1>
+
+
+    {% comment %} Random Filter {% endcomment %}
+    <h1>{{ fruits | random }}</h1>
+
+
+    {% comment %} Slice Filter {% endcomment %}
+    <h1>{{ fruits | slice:":2" }}</h1>
+
+
+    {% comment %} Time Filter {% endcomment %}
+    <h1>{{ date | time:"H:i" }}</h1>
+    <h1>{{ date | time:"H\h i\m" }}</h1>
+
+
+    {% comment %} Truncatechars Filter {% endcomment %}
+    <h1>{{ 'Happy coding' | truncatechars:6 }}</h1>
+
+
+    {% comment %} Wordcount Filter {% endcomment %}
+    <h1>{{ 'I Am Master Yoda' | wordcount }}</h1>
+
+
+    {% comment %} Truncatewords Filter {% endcomment %}
+    <h1>{{ 'I Am Master Yoda' | truncatewords:2 }}</h1>
+
+
+    {% comment %} Striptags Filter {% endcomment %}
+    <h1>{{ "<b>I</b> <button>love</button> <span>you</span>" | striptags }}</h1>
+
+    
+    {% comment %} Make_list Filter {% endcomment %}
+    <h1>{{ 'Earthly' | make_list }}</h1>
+
+</body>
+</html>
